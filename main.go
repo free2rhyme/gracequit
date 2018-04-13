@@ -44,6 +44,12 @@ func main() {
 		waitGroup.Done()
 	}()
 
+	for i := 0; i < 2; i++ {
+		handler.OnEvent1(i)
+		handler.OnEvent2(i * 10)
+		handler.OnEvent3(i * 100)
+	}
+
 	handler.Stop()
 
 	waitGroup.Wait()
