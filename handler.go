@@ -127,7 +127,7 @@ func (h *Handler) safeEnqueueRequest(req *request, wait4reply bool) (interface{}
 			if ok {
 				return r, nil
 			}
-			return nil, errors.New("Service is down")
+			return nil, errors.New("Service excepts")
 		}
 	} else {
 		return nil, nil
