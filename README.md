@@ -1,3 +1,2 @@
 # gracequit
-Try to run it
-	`go run -race *.go`
+Try to run `go run -race *.go`
