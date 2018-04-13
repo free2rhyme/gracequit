@@ -63,6 +63,7 @@ func (h *Handler) OnEvent1(req interface{}) error {
 
 	r, err := h.safeEnqueueRequest(intraReq, true)
 	if nil != err {
+		fmt.Println("OnEvent1 err is ", err)
 		return err
 	}
 
@@ -83,6 +84,7 @@ func (h *Handler) OnEvent2(req interface{}) error {
 
 	r, err := h.safeEnqueueRequest(intraReq, true)
 	if nil != err {
+		fmt.Println("OnEvent2 err is ", err)
 		return err
 	}
 
@@ -103,6 +105,7 @@ func (h *Handler) OnEvent3(req interface{}) error {
 
 	_, err := h.safeEnqueueRequest(intraReq, false)
 	if nil != err {
+		fmt.Println("OnEvent3 err is ", err)
 		return err
 	}
 
