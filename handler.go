@@ -47,7 +47,13 @@ func (h *Handler) Start() error {
 }
 
 func (h *Handler) Stop() {
-	h.quit <- true
+	select {
+	case <-h.stopped:
+		fmt.Print("service is down already")
+		return
+	case h.quit <- true:
+	}
+
 	<-h.shutdown
 }
 

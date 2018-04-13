@@ -20,6 +20,10 @@ func main() {
 			handler.OnEvent1(i)
 			handler.OnEvent2(i * 10)
 			handler.OnEvent3(i * 100)
+
+			if i%2 == 4 {
+				handler.Stop()
+			}
 		}
 		waitGroup.Done()
 	}()
@@ -30,6 +34,10 @@ func main() {
 			handler.OnEvent1(i)
 			handler.OnEvent2(i * 10)
 			handler.OnEvent3(i * 100)
+
+			if i%2 == 2 {
+				handler.Stop()
+			}
 		}
 		waitGroup.Done()
 	}()
@@ -40,11 +48,15 @@ func main() {
 			handler.OnEvent1(i)
 			handler.OnEvent2(i * 10)
 			handler.OnEvent3(i * 100)
+
+			if i%2 == 0 {
+				handler.Stop()
+			}
 		}
 		waitGroup.Done()
 	}()
 
-	for i := 0; i < 2; i++ {
+	for i := 0; i < 5; i++ {
 		handler.OnEvent1(i)
 		handler.OnEvent2(i * 10)
 		handler.OnEvent3(i * 100)
